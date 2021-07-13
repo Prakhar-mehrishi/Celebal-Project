@@ -80,4 +80,5 @@ def predict():
   return render_template('index.html', prediction_text='Model  has predicted  : {}'.format(result))
 
 
-app.run()
+if __name__ == "__main__":
+    app.run(debug=True)
