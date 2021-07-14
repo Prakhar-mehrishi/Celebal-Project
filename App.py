@@ -9,25 +9,7 @@ pickle_in = open("celebal_model.pkl","rb")
 model=pickle.load(pickle_in)
 dataset= pd.read_csv('Churn_Modelling.csv')
 X = dataset.iloc[:,1:10].values
-
-# Taking care of missing data
-#handling missing data (Replacing missing data with the mean value)  
-from sklearn.impute import SimpleImputer
-imputer = SimpleImputer(missing_values= np.NaN, strategy= 'mean', fill_value=None, verbose=1, copy=True)
-#Fitting imputer object to the independent variables x.   
-imputer = imputer.fit(X[:,3:9]) 
-#Replacing missing data with the calculated mean value  
-X[:,3:9]= imputer.transform(X[:,3:9])  
-
-# Taking care of missing data
-#handling missing data (Replacing missing data with the mean value)  
-from sklearn.impute import SimpleImputer
-imputer = SimpleImputer(missing_values= np.NaN, strategy= 'constant', fill_value='female', verbose=1, copy=True)
-#Fitting imputer object to the independent variables x.   
-imputer = imputer.fit(X[:, 2:3]) 
-#Replacing missing data with the constant value  
-X[:, 2:3]= imputer.transform(X[:,2:3])  
-
+ 
 # Encoding Categorical data:
 # Encoding the Independent Variable
 from sklearn.preprocessing import LabelEncoder
