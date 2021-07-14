@@ -40,10 +40,6 @@ from sklearn.preprocessing import LabelEncoder
 labelencoder_X = LabelEncoder()
 X[:, 2] = labelencoder_X.fit_transform(X[:, 2])
 
-from sklearn.preprocessing import StandardScaler
-sc = StandardScaler()
-X = sc.fit_transform(X)
-
 def predict_note_authentication(CreditScore,Geography,Gender,Age,Tenure,Balance,HasCrCard,IsActiveMember,EstimatedSalary):
   output= model.predict(sc.transform([[CreditScore,Geography,Gender,Age,Tenure,Balance,HasCrCard,IsActiveMember,EstimatedSalary]]))
   print("Customer will leave =", output)
