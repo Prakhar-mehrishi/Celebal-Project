@@ -22,8 +22,8 @@ from sklearn.preprocessing import LabelEncoder
 labelencoder_X = LabelEncoder()
 X[:, 2] = labelencoder_X.fit_transform(X[:, 2])
 
-def predict_note_authentication(CreditScore,Geography,Gender,Age,Tenure,Balance,HasCrCard,IsActiveMember,EstimatedSalary):
-  output= model.predict([[CreditScore,Geography,Gender,Age,Tenure,Balance,HasCrCard,IsActiveMember,EstimatedSalary]])
+def predict_note_authentication(CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary):
+  output= model.predict([[CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary]])
   print("Customer will leave =", output)
   if output==[1]:
     prediction="Customer will Leave"
@@ -51,15 +51,16 @@ def main():
     HasCrCard = st.number_input('Insert a HasCrCard 0 For No 1 For Yes',0,1)
     Tenure = st.number_input('Insert a Tenure',0,20)
     Balance = st.number_input('Insert a Balance',0)
+    NumOfProducts = st.number_input('Insert Num Of Products',1,4)
     Gender = st.number_input('Insert 0 For Male 1 For Female ',0,1)
-    Geography= st.number_input('Insert Geography 0 For France 1 For Spain',0,1)
+    Geography= st.number_input('Insert Geography 0 For France 1 For Spain and 2 For Germany For',0,2)
     IsActiveMember= st.number_input('Insert a IsActiveMember 0 For No 1 For Yes',0,1)
     EstimatedSalary= st.number_input('Insert a EstimatedSalary',0)
     
     
     resul=""
     if st.button("Predict"):
-      result=predict_note_authentication(CreditScore,Geography,Gender,Age,Tenure,Balance,HasCrCard,IsActiveMember,EstimatedSalary)
+      result=predict_note_authentication(CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary)
       st.success('Model has predicted {}'.format(result))
     if st.button("About"):
       st.subheader("Developed by Team - 8")
