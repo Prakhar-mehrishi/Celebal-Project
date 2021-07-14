@@ -75,7 +75,7 @@ def main():
     Tenure = st.number_input('Insert a Tenure',0,20)
     Balance = st.number_input('Insert a Balance',0)
     Gender = st.number_input('Insert 0 For Male 1 For Female ',0,1)
-    Geography= st.number_input('Insert Geography 0 For France 1 For Spain'0,1)
+    Geography= st.number_input('Insert Geography 0 For France 1 For Spain',0,1)
     IsActiveMember= st.number_input('Insert a IsActiveMember 0 For No 1 For Yes',0,1)
     EstimatedSalary= st.number_input('Insert a EstimatedSalary',0)
     
