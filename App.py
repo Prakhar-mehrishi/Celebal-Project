@@ -25,10 +25,10 @@ X[:, 2] = labelencoder_X.fit_transform(X[:, 2])
 def predict_note_authentication(CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary):
   output= model.predict([[CreditScore,Geography,Gender,Age,Tenure,Balance,NumOfProducts,HasCrCard,IsActiveMember,EstimatedSalary]])
   print("Customer will leave =", output)
-  if output==[1]:
-    prediction="Customer will Leave"
-  else:
+  if output==[0]:
     prediction="Customer will not Leave"
+  else:
+    prediction="Customer will Leave"
   print(prediction)
   return prediction
 def main():
